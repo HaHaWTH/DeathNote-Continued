@@ -28,7 +28,7 @@ public class PluginAfflictions {
                 "The target will have a heart attack and die instantly.",
                 "had a heart attack",
                 getMain(),
-                player -> player.damage(player.getHealth()));
+                player -> player.damage(1000000000));
         setDefaultAffliction(heartAttack);
         register(heartAttack);
 
@@ -316,7 +316,7 @@ public class PluginAfflictions {
                                 new BukkitRunnable() {
                                     @Override
                                     public void run() {
-                                        pig.getWorld().createExplosion(pig.getLocation(), 10);
+                                        pig.getWorld().createExplosion(pig.getLocation(), 15);
                                         pig.remove();
                                     }
                                 }.runTaskLater(getMain(), 25);
@@ -432,7 +432,7 @@ public class PluginAfflictions {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                var bee = (Bee) world.spawnEntity(player.getLocation().add(0, 2, 0), EntityType.BEE);
+                                Bee bee = (Bee) world.spawnEntity(player.getLocation().add(0, 2, 0), EntityType.BEE);
                                 bee.setInvulnerable(true);
                                 new BukkitRunnable() {
                                     @Override
@@ -467,7 +467,7 @@ public class PluginAfflictions {
                     getMain(),
                     player -> {
                         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 999999, 2));
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 999999, 255));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 999999, 255));
                         player.setFoodLevel(3);
                         new BukkitRunnable() {
                             int tick = 0;

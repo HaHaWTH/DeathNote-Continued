@@ -14,7 +14,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/dev/jorel/commandapi-annotations/9.4.2/commandapi-annotations-9.4.2.jar" />
+          <entry name="$MAVEN_REPOSITORY$/dev/jorel/commandapi-annotations/9.2.0/commandapi-annotations-9.2.0.jar" />
         </processorPath>
         <module name="DeathNoteInternals" />
       </profile>

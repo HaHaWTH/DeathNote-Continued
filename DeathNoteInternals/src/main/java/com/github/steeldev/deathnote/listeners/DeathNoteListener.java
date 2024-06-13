@@ -71,7 +71,7 @@ public class DeathNoteListener implements Listener {
         String page = pagesSplit.get(pagesSplit.size() - 1);
         if (page.trim().isEmpty()) return;
         List<String> entrySplit = Arrays.asList(page.split("( by | in)"));
-        if (entrySplit.isEmpty()) return;
+        if (entrySplit.size() == 0) return;
         String playerEntry = entrySplit.get(0).trim();
         String afflictionEntry = (entrySplit.size() > 1) ? entrySplit.get(1).trim() : "";
         long time = 30; // in ticks
@@ -80,7 +80,7 @@ public class DeathNoteListener implements Listener {
         Player target = Bukkit.getServer().getPlayer(playerEntry);
         Affliction defaultAffliction = AfflictionManager.getDefaultAffliction();
         Affliction inputtedAffliction;
-        if (!afflictionEntry.isEmpty()) {
+        if (!afflictionEntry.equals("")) {
             if (afflictionEntry.equalsIgnoreCase("random") && getMain().config.RANDOM_AFFLICTION_ENABLED)
                 inputtedAffliction = AfflictionManager.getRandomAffliction();
             else
@@ -103,9 +103,7 @@ public class DeathNoteListener implements Listener {
             inputtedAffliction = defaultAffliction;
         }
         if (inputtedAffliction == null) {
-            if (defaultAffliction != null) {
-                Message.INPUTTED_AFFLICTION_INVALID.send(player, true, afflictionEntry, target.getName(), defaultAffliction.getDisplay());
-            }
+            Message.INPUTTED_AFFLICTION_INVALID.send(player, true, afflictionEntry, target.getName(), defaultAffliction.getDisplay());
             inputtedAffliction = defaultAffliction;
         } else {
             String afflictionDisplay = inputtedAffliction.getDisplay();
@@ -185,7 +183,7 @@ public class DeathNoteListener implements Listener {
             @Override
             public void run() {
                 target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 1));
-                target.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 40, 1));
+                target.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 40, 1));
                 target.playSound(target.getLocation(), Sound.AMBIENT_CAVE, SoundCategory.MASTER, 1, 1);
                 Message.TARGET_BEING_AFFLICTED.send(target, false);
                 target.setGameMode(GameMode.SURVIVAL);

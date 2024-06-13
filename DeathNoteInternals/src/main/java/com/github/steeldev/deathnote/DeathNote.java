@@ -57,6 +57,7 @@ public class DeathNote extends JavaPlugin {
 
     @Override
     public void onLoad() {
+        //CommandAPI.onLoad(new CommandAPIConfig().silentLogs(true));
         CommandAPI.onLoad(new CommandAPIBukkitConfig(this).silentLogs(true));
     }
 
@@ -65,6 +66,7 @@ public class DeathNote extends JavaPlugin {
         long start = System.currentTimeMillis();
         instance = this;
 
+        //CommandAPI.onEnable(this);
         CommandAPI.onEnable();
         CommandAPI.registerCommand(MainCommand.class);
 
@@ -230,7 +232,7 @@ public class DeathNote extends JavaPlugin {
     public void enableMetrics() {
         Metrics metrics = new Metrics(this, 12275);
 
-        if (metrics.isEnabled()) {
+        if (isEnabled()) {
             Message.STARTING_METRICS.log();
         }
     }
