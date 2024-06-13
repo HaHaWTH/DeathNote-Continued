@@ -32,23 +32,23 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.13.0</version>
                 <configuration>
                     <annotationProcessorPaths>
                         <path>
-                            <groupId>dev.jorel.CommandAPI</groupId>
+                            <groupId>dev.jorel</groupId>
                             <artifactId>commandapi-annotations</artifactId>
-                            <version>6.1.0</version>
+                            <version>9.4.2</version>
                         </path>
                     </annotationProcessorPaths>
-                    <source>15</source>
-                    <target>15</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.3.1-SNAPSHOT</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <id>shade</id>
@@ -69,7 +69,8 @@
                             <shadedPattern>com.github.steeldev.deathnote.api</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>dev.jorel.commandapi-shade</pattern>
+                            <pattern>dev.jorel.commandapi</pattern>
+                            <shadedPattern>io.github.jorelali.commandapi</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -96,14 +97,14 @@
             <version>1.6</version>
         </dependency>
         <dependency>
-            <groupId>dev.jorel.CommandAPI</groupId>
-            <artifactId>commandapi-shade</artifactId>
-            <version>8.1.0</version>
+            <groupId>dev.jorel</groupId>
+            <artifactId>commandapi-bukkit-shade</artifactId>
+            <version>9.4.2</version>
         </dependency>
         <dependency>
-            <groupId>dev.jorel.CommandAPI</groupId>
+            <groupId>dev.jorel</groupId>
             <artifactId>commandapi-annotations</artifactId>
-            <version>8.1.0</version>
+            <version>9.4.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
