@@ -467,7 +467,7 @@ public class PluginAfflictions {
                     getMain(),
                     player -> {
                         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 999999, 2));
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 999999, 255));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 999999, 255));
                         player.setFoodLevel(3);
                         new BukkitRunnable() {
                             int tick = 0;

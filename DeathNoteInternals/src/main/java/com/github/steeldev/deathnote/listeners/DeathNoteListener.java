@@ -183,7 +183,7 @@ public class DeathNoteListener implements Listener {
             @Override
             public void run() {
                 target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 1));
-                target.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 40, 1));
+                target.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 40, 1));
                 target.playSound(target.getLocation(), Sound.AMBIENT_CAVE, SoundCategory.MASTER, 1, 1);
                 Message.TARGET_BEING_AFFLICTED.send(target, false);
                 target.setGameMode(GameMode.SURVIVAL);
